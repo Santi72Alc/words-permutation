@@ -85,8 +85,11 @@ function cleanForm() {
 // Muestra el resultado en el frontend
 function showResult(arrCombinations) {
     let $resultHeader = document.getElementById('result-header')
-    $resultHeader.innerHTML = '<h2>Results</h2>'
-    $resultHeader.innerHTML += `<h4>Permutations #: ${arrCombinations.length}</h4>`
+
+    if (arrCombinations.length) {
+        $resultHeader.innerHTML = '<h2>Results</h2>'
+        $resultHeader.innerHTML += `<h4>Permutations #: ${arrCombinations.length}</h4>`
+    } else $resultHeader.innerHTML = ''
 
     let $resultData = document.getElementById('result-data')
     $resultData.innerHTML = `

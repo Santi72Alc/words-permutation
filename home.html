@@ -1,104 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- Bootstrap CSS -->
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
-			crossorigin="anonymous"
-		/>
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- Bootstrap ICONS -->
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-		/>
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
 
-		<!-- SweetAlert2 CDN -->
-		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- Bootstrap ICONS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
 
-		<title>12 words combination</title>
-	</head>
+	<!-- SweetAlert2 CDN -->
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-	<body>
-		<div class="container">
-			<!-- Info author -->
-			<section class="flex-shrink-0 py-4 bg-light text-black-50 w-100">
-				<div class="container text-center">
-					<small>Design by Santiago S.R.</small><br />
-					<small><i class="bi bi-at"> santi72alc@gmail.com</i></small>
-				</div>
-			</section>
+	<title>Words permutation</title>
+</head>
 
-			<!-- Cabecera -->
-			<div class="text-center py-4">
-				<h2>Permutation of words</h2>
-				<h5 class="fst-italic">(allow positions locked)</h5>
+<body>
+	<div class="container">
+		<!-- Info author -->
+		<section class="flex-shrink-0 py-4 bg-light text-black-50 w-100">
+			<div class="container text-center">
+				<small>Design by Santiago S.R.</small><br />
+				<small><a href="mailto:santi72alc@gmail.com" class="text-reset"><i class="bi bi-at"> santi72alc@gmail.com</i></a></small>
 			</div>
+		</section>
 
-			<!-- Formulario -->
-			<div class="d-flex justify-content-center flex-column">
-				<form onsubmit="doCombinations(event)" id="formulary">
-                    <div class="form-group mb-2 w-25">
-                      <label for="inputNumWords">Words #</label>
-                      <input type="number"
-                      name="inputNumWords"
-                        id="inputNumWords"
-                        class="form-control" name="numWords" id="numWords"
-                        min="2"
-                        max="12">
-                      <small class="form-text text-muted">Num. of words to permutate (max. 12)</small>
-                    </div>
+		<!-- Cabecera -->
+		<div class="text-center py-4">
+			<h2>Words permutation</h2>
+			<h5 class="fst-italic">(allow positions locked)</h5>
+		</div>
 
-                    <!-- Datos de la tabla -->
-					<div id="tableDiv"></div>
+		<!-- Formulario -->
+		<div class="d-flex justify-content-center flex-column">
+			<form onsubmit="doCombinations(event)" id="formulary">
+				<div class="form-group mb-2 w-25">
+					<label for="inputNumWords">Words #</label>
+					<input type="number" name="inputNumWords" id="inputNumWords" class="form-control" name="numWords"
+						id="numWords" min="2" max="12" />
+					<small class="form-text text-muted">Num. of words to permutate (max. 12)</small>
+				</div>
 
-					<div class="d-flex
-							flex-column flex-md-row
+				<!-- Datos de la tabla -->
+				<div id="tableDiv"></div>
+
+				<div class="d-flex flex-column flex-md-row
 							justify-content-around
 							mb-4">
-						<button
-							type="submit"
-							id="btnSubmit"
-							class="btn btn-success btn-lg btn-block
+					<button type="submit" 
+						id="btnSubmit" 
+						class="btn btn-success btn-lg btn-block
 								mb-2 mb-md-0
 								w-75"
-                        >
-							Generate
-						</button>
+					>
+						Generate
+					</button>
 
-						<button
-							type="button"
-							class="btn btn-secondary btn-lg"
-							onclick="cleanForm()"
-					    >
-                            Clean words
-                        </button>
-					</div>
-				</form>
-			</div>
-
-			<!-- Resultado de las combinaciones -->
-			<div id="results">
-				<div id="result-header" class="text-center"></div>
-				<div id="result-data"></div>
-			</div>
+					<button type="button" class="btn btn-secondary btn-lg" onclick="cleanForm()">
+						Clean words
+					</button>
+				</div>
+			</form>
 		</div>
-		<!-- Bootstrap Bundle with Popper -->
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
-			crossorigin="anonymous"
-		></script>
 
-		<script src="./services/permutation.service.js"></script>
-		<script src="./services/frontend.services.js"></script>
-		<script src="./main.js"></script>
-	</body>
+		<!-- Resultado de las combinaciones -->
+		<div id="results">
+			<div id="result-header" class="text-center"></div>
+			<div id="result-data"></div>
+		</div>
+	</div>
+	<!-- Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+		crossorigin="anonymous"></script>
+
+	<script src="./services/permutation.service.js"></script>
+	<script src="./services/frontend.services.js"></script>
+	<script src="./main.js"></script>
+</body>
+
 </html>
