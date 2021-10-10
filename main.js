@@ -1,6 +1,6 @@
 
 // Función 'submit' del formulario
-async function doCombinations(e) {
+function doCombinations(e) {
 	e.preventDefault();
 
 	// Cogemos los datos desde el front
