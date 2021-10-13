@@ -57,7 +57,6 @@ function getWordsFromFormulary() {
         const $nInputWord = document.getElementById(`word-${i}`)
         const $nInputLocked = document.getElementById(`locked-${i}`)
         const data = {
-            order: i,
             word: $nInputWord.value.split(' ')[0],
             locked: $nInputLocked.checked
         }
@@ -71,7 +70,7 @@ function getWordsFromFormulary() {
             text: `Must to be ${WORDS_TO_READ} words to generate permutations`,
             icon: 'info'
         })
-        return false
+        return []
     }
     else return arrData
 }
@@ -80,6 +79,7 @@ function getWordsFromFormulary() {
 // Limpia el formulario
 function cleanForm() {
     document.getElementById("formulary").reset();
+    document.getElementById("inputNumWords").value = WORDS_TO_READ
 }
 
 // Muestra el resultado en el frontend

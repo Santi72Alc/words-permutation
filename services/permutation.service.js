@@ -26,15 +26,17 @@ function permuteWords() {
 
 
 
-function combineWords(arrData) {
-    let tmpArrDataBlocked = arrData.map(data => {
-        if (data.locked && data.word) return data.word
-        else return undefined
-    })
+function permuteWords(arrData) {
     let wordsToPermute = []
-    // Cogemos las palabras que NO son fijas para permutar
+    let tmpArrBlocked = []
     arrData.forEach(data => {
-        if (!data.locked && data.word) wordsToPermute.push(data.word)
+        // if (data.word) {
+            if (data.locked) tmpArrBlocked.push(data.word)
+            else {
+                wordsToPermute.push(data.word)
+                tmpArrBlocked.push(undefined)
+            }
+        // }
     })
     // Generamos las permutaciones ... 
     const arrWordsPermuted = _permutations(wordsToPermute)
@@ -42,12 +44,13 @@ function combineWords(arrData) {
     let finalCombinations = []
     // Para cada permutación posible... hacemos los cambios en el array de bloqueados
     arrWordsPermuted.forEach(row => {
-        let tmpArr = []
-        tmpArrDataBlocked.forEach(word => {
-            if (!word) tmpArr.push(row.shift())
-            else tmpArr.push(word)
+        let tmpArrOfWords = []
+        tmpArrBlocked.forEach(word => {
+            word 
+            ? tmpArrOfWords.push(word) 
+            : tmpArrOfWords.push(row.shift())
         })
-        finalCombinations.push(tmpArr)
+        finalCombinations.push(tmpArrOfWords)
     })
 
     return finalCombinations
