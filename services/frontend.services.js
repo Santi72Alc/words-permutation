@@ -105,13 +105,15 @@ function showResult(arrCombinations) {
 
     let $dataRows = document.getElementById('data-Rows')
     let strRow = ''
+    let wordsToShow = ''
     for (let row = 0; row < arrCombinations.length; row++) {
         strRow = '<tr class="d-flex align-items-center">'
         strRow += `<td>${(row + 1).toString().padStart(2, 0)}</td>`
         // Recorremos las 'WORDS_TO_READ' palabras
-        for (let wordIndex = 0; wordIndex < WORDS_TO_READ; wordIndex++) {
-            strRow += `<td class="w-100">${arrCombinations[row][wordIndex]}</td>`
-        }
+        wordsToShow = arrCombinations[row].join(' ')
+        //for (let wordIndex = 0; wordIndex < WORDS_TO_READ; wordIndex++) {
+            strRow += `<td class="w-100" colspan=12>${wordsToShow}</td>`
+        //}
         strRow += '</tr>'
         $dataRows.innerHTML += strRow
     }
