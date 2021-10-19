@@ -1,42 +1,36 @@
 
 function _permutations(arrInput) {
-    let _permutations = []
+    let arrFinalOfPermutations = []
 
-    const permute = (arr, permutation = []) => {
+    const permute = (arr, arrPermutations = []) => {
         if (!arr.length) {
-            _permutations.push(permutation)
+            arrFinalOfPermutations.push(arrPermutations)
             return
         }
 
         for (let i in arr) {
             let curr = arr.slice()
             let next = curr.splice(i, 1)
-
-            permute(curr, permutation.concat(next))
+            permute(curr, arrPermutations.concat(next))
         }
     }
 
     permute(arrInput)
-    return _permutations
-}
-
-function permuteWords() {
-
+    return arrFinalOfPermutations
 }
 
 
-
-function permuteWords(arrData) {
+function permuteWords(arrAllWords) {
     let wordsToPermute = []
     let tmpArrBlocked = []
-    arrData.forEach(data => {
-        // if (data.word) {
-            if (data.locked) tmpArrBlocked.push(data.word)
-            else {
-                wordsToPermute.push(data.word)
-                tmpArrBlocked.push(undefined)
-            }
-        // }
+
+    arrAllWords.forEach(data => {
+        if (data.locked) 
+            tmpArrBlocked.push(data.word)
+        else {
+            wordsToPermute.push(data.word)
+            tmpArrBlocked.push(undefined)
+        }
     })
     // Generamos las permutaciones ... 
     const arrWordsPermuted = _permutations(wordsToPermute)

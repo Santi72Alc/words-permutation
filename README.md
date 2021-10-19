@@ -2,12 +2,10 @@
 #### Santiago San Román Játiva
 santi72alc@gmail.com  
 
-_Ver. 1.0.0_
+_Ver. 2.0.0_
 
-Permite hacer permutaciones desde 2 hasta 12 palabras.  
-Se ha dispuesto un campo numérico para poder seleccionar el número de palabras a permutar. 
-
-Se permite también que cada palabra sea seleccionada para fijarla en las permutaciones.
+Se introduce la lista de palabras separadas por un (1) espacio.  
+Si deseamos 'bloquear' la permutación de una/s palabra/s, deberá ser precedida del caractter '*'  
 
 Esta versión esté realizada en HTML y Javascript y hace que el cálculo se realice en la parte del navegador y, dependiendo de las palabras a permutar, puede que éste llegue a ser 'demasiado' lento.
 

@@ -3,6 +3,7 @@
 
 <head>
 	<!-- Required meta tags -->
+
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,7 +27,8 @@
 		<section class="flex-shrink-0 py-4 bg-light text-black-50 w-100">
 			<div class="container text-center">
 				<small>Design by Santiago S.R.</small><br />
-				<small><a href="mailto:santi72alc@gmail.com" class="text-reset"><i class="bi bi-at"> santi72alc@gmail.com</i></a></small>
+				<small><a href="mailto:santi72alc@gmail.com" class="text-reset"><i class="bi bi-at"> santi72alc@gmail.com</i></a></small><br>
+				<small class="text-reset">Ver. 2.0</small>
 			</div>
 		</section>
 
@@ -39,38 +41,55 @@
 		<!-- Formulario -->
 		<div class="d-flex justify-content-center flex-column">
 			<form onsubmit="doCombinations(event)" id="formulary">
-				<div class="form-group mb-2 w-25">
-					<label for="inputNumWords">Words #</label>
-					<input type="number" name="inputNumWords" id="inputNumWords" class="form-control" name="numWords"
-						id="numWords" min="2" max="12" />
-					<small class="form-text text-muted">Num. of words to permutate (max. 12)</small>
+				<div class="form-group mb-3 w-100">
+					<label for="textWordsInput">Words list:</label>
+					<input 
+						type="text" 
+						name="textWordsInput" id="textWordsInput" 
+						class="form-control" 
+						oninput="checkInput(event)"
+					/>
+					<small class="form-text text-muted">Type words with one (1) space between each of them (*word = locked)</small>
 				</div>
 
 				<!-- Datos de la tabla -->
-				<div id="tableDiv"></div>
+				<!-- <div id="tableDiv"></div> -->
 
-				<div class="d-flex flex-column flex-sm-row
-							justify-content-around
-							mb-4">
-					<button type="submit" 
-						id="btnSubmit" 
-						class="btn btn-success btn-lg btn-block
-								mb-3 mb-sm-0 w-75"
+				<div class="d-flex flex-column flex-sm-row justify-content-around mb-4">
+					<button 
+						type="submit" id="btnSubmit" 
+						class="btn btn-success btn-lg btn-block mb-3 mb-sm-0 w-75"
+						disabled
 					>
 						Generate
 					</button>
 
-					<button type="button" class="btn btn-secondary btn-lg" onclick="cleanForm()">
-						Clean words
+					<button 
+						type="button" 
+						class="btn btn-secondary btn-lg" 
+						onclick="cleanForm()"
+					>
+						Clean
 					</button>
+
 				</div>
 			</form>
 		</div>
 
 		<!-- Resultado de las combinaciones -->
 		<div id="results">
-			<div id="result-header" class="text-center"></div>
-			<div id="result-data"></div>
+			<div id="result-header" class="d-none text-center"></div>
+			<div id="result-data" class="flex d-none">
+				<table class="table table-borderless table-hover">
+					<thead>
+						<tr class="d-flex table-primary mb-2">
+							<th>#</th>
+							<th class="text-center w-100">Words list</th>
+						</tr>
+					</thead>
+					<tbody id="data-Rows"></tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 	<!-- Bootstrap Bundle with Popper -->
