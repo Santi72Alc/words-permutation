@@ -53,7 +53,7 @@ function cleanForm() {
 // Muestra el resultado en el frontend
 function showResult(arrCombinations) {
     let $resultHeader = document.getElementById('result-header')
-    $resultHeader.classList.toggle("d-none")
+    $resultHeader.classList.remove("d-none")
     $resultHeader.innerHTML = `
         <div>
             <h2>Results</h2>
@@ -62,9 +62,11 @@ function showResult(arrCombinations) {
     `
 
     let $resultData = document.getElementById('result-data')
-    $resultData.classList.toggle("d-none")
+    $resultData.classList.remove("d-none")
     
     let $dataRows = document.getElementById('data-Rows')
+    let $btnSubmit = document.getElementById('btnSubmit')
+    $btnSubmit.setAttribute("disabled", "true")
     let txtWords = ''
     let strRows = ''
     new Promise((resolve, reject) => {
